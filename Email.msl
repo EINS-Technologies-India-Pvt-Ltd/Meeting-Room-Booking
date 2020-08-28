@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EMAILModelStoreContainer" CdmEntityContainer="EMAILEntities">
+    <EntitySetMapping Name="Event_Manager">
+      <EntityTypeMapping TypeName="EMAILModel.Event_Manager">
+        <MappingFragment StoreEntitySet="Event_Manager">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="RuleName" ColumnName="RuleName" />
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="AdminBody" ColumnName="AdminBody" />
+          <ScalarProperty Name="ReportingToBody" ColumnName="ReportingToBody" />
+          <ScalarProperty Name="EmployeeBody" ColumnName="EmployeeBody" />
+          <ScalarProperty Name="eM_LocationId" ColumnName="eM_LocationId" />
+          <ScalarProperty Name="eM_CompanyId" ColumnName="eM_CompanyId" />
+          <ScalarProperty Name="eM_Event_Id" ColumnName="eM_Event_Id" />
+          <ScalarProperty Name="eM_FormId" ColumnName="eM_FormId" />
+          <ScalarProperty Name="eM_SectionID" ColumnName="eM_SectionID" />
+          <ScalarProperty Name="eM_ModuleId" ColumnName="eM_ModuleId" />
+          <ScalarProperty Name="eM_MainModuleId" ColumnName="eM_MainModuleId" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailConfigurations">
+      <EntityTypeMapping TypeName="EMAILModel.EmailConfiguration">
+        <MappingFragment StoreEntitySet="EmailConfiguration">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ec_Pop3Portno" ColumnName="ec_Pop3Portno" />
+          <ScalarProperty Name="eC_Pop3Server" ColumnName="eC_Pop3Server" />
+          <ScalarProperty Name="eC_signature" ColumnName="eC_signature" />
+          <ScalarProperty Name="eC_IsActive" ColumnName="eC_IsActive" />
+          <ScalarProperty Name="eC_IsDefault" ColumnName="eC_IsDefault" />
+          <ScalarProperty Name="eC_status" ColumnName="eC_status" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="eC_IsSSLEnabled" ColumnName="eC_IsSSLEnabled" />
+          <ScalarProperty Name="eC_SMTPPort" ColumnName="eC_SMTPPort" />
+          <ScalarProperty Name="eC_Password" ColumnName="eC_Password" />
+          <ScalarProperty Name="eC_UserName" ColumnName="eC_UserName" />
+          <ScalarProperty Name="eC_SMTPServerName" ColumnName="eC_SMTPServerName" />
+          <ScalarProperty Name="eC_Id" ColumnName="eC_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EINS_RBMS_EMAILModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EINS_RBMS_EMAILEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Columns" EntityType="EINS_RBMS_EMAILModel.Column" />
+    <EntitySet Name="EmailConfigurations" EntityType="EINS_RBMS_EMAILModel.EmailConfiguration" />
+    <EntitySet Name="Events" EntityType="EINS_RBMS_EMAILModel.Event" />
+    <EntitySet Name="Forms" EntityType="EINS_RBMS_EMAILModel.Form" />
+    <EntitySet Name="Modules" EntityType="EINS_RBMS_EMAILModel.Module" />
+    <EntitySet Name="TableStructures" EntityType="EINS_RBMS_EMAILModel.TableStructure" />
+    <EntitySet Name="EventManagers" EntityType="EINS_RBMS_EMAILModel.EventManager" />
+  </EntityContainer>
+  <EntityType Name="Column">
+    <Key>
+      <PropertyRef Name="ColumnID" />
+    </Key>
+    <Property Name="ColumnID" Type="Int32" Nullable="false" />
+    <Property Name="ColumnName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="DbColumnName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="DbtableName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="FormID" Type="Int32" />
+    <Property Name="Priority" Type="Boolean" />
+    <Property Name="status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EmailConfiguration">
+    <Key>
+      <PropertyRef Name="eC_Id" />
+    </Key>
+    <Property Name="eC_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eC_SMTPServerName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="eC_UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="eC_Password" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="eC_SMTPPort" Type="Int32" />
+    <Property Name="eC_IsSSLEnabled" Type="Boolean" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="eC_status" Type="Boolean" />
+    <Property Name="eC_IsDefault" Type="Boolean" />
+    <Property Name="eC_IsActive" Type="Boolean" />
+    <Property Name="eC_signature" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="eC_Pop3Server" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ec_Pop3Portno" Type="Int32" />
+    <Property Name="DisplayName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="AddedBy" Type="Int64" />
+    <Property Name="AddedOn" Type="DateTime" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventsID" />
+    </Key>
+    <Property Name="EventsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventsName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="FormID" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Form">
+    <Key>
+      <PropertyRef Name="FormID" />
+    </Key>
+    <Property Name="FormID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ModuleID" Type="Int32" />
+    <Property Name="MessageBox1" Type="Boolean" />
+    <Property Name="MessageBox2" Type="Boolean" />
+    <Property Name="MessageBox3" Type="Boolean" />
+    <Property Name="MessageBox1_Contacts" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="MessageBox2_Contacts" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="MessageBox3_Contacts" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TableStructure">
+    <Key>
+      <PropertyRef Name="tS_Id" />
+    </Key>
+    <Property Name="tS_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tS_Query" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="tS_FormName" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="tS_ControlName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DataBaseName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Select_Clause" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="AddedBy" Type="Int64" />
+    <Property Name="AddedOn" Type="DateTime" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="EventManager">
+    <Key>
+      <PropertyRef Name="eM_Id" />
+    </Key>
+    <Property Type="Int32" Name="eM_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="eM_ModuleId" />
+    <Property Type="Int32" Name="eM_FormId" />
+    <Property Type="Int32" Name="eM_Events_Id" />
+    <Property Type="Int32" Name="eM_CompanyId" />
+    <Property Type="Int32" Name="eM_LocationId" />
+    <Property Type="Int32" Name="eM_ConfigId" />
+    <Property Type="String" Name="eM_RuleName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="eM_Subject" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="eM_CommonEmailBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="eM_HostEmailBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="eM_VisitorEmailBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="eM_Priority" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="eM_Reciepients" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int32" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+    <Property Type="Int32" Name="eM_Department" />
+    <Property Type="Int32" Name="eM_TemplateId" />
+  </EntityType>
+</Schema>

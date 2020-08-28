@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D534E39D-3C77-458B-B2F3-EDA68E5FE014}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RBDL</RootNamespace>
+    <AssemblyName>RBDL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasicSettingDL.cs" />
+    <Compile Include="ChangePasswordDL.cs" />
+    <Compile Include="ClsSendEmail.cs" />
+    <Compile Include="ClsSendEmail_DL.cs" />
+    <Compile Include="ClsSendSMS.cs" />
+    <Compile Include="ClsSendSMS_DL.cs" />
+    <Compile Include="CommonDL.cs" />
+    <Compile Include="CommonFunction.cs" />
+    <Compile Include="CompanyDL.cs" />
+    <Compile Include="DatabaseDL.cs" />
+    <Compile Include="DomainInfoDL.cs" />
+    <Compile Include="EmailDL.cs" />
+    <Compile Include="EncryptDecryptClass.cs" />
+    <Compile Include="EventLogDL.cs" />
+    <Compile Include="FedbackDL.cs" />
+    <Compile Include="LoginDL.cs" />
+    <Compile Include="Master.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Master.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomPassword.cs" />
+    <Compile Include="RDMBS_Email.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RDMBS_Email.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RDMS_SMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RDMS_SMS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDL.cs" />
+    <Compile Include="ResourceDL.cs" />
+    <Compile Include="RoomBookingAppRejDL.cs" />
+    <Compile Include="RoomBookingStatusDL.cs" />
+    <Compile Include="RoomDL.cs" />
+    <Compile Include="RoomSearchDL.cs" />
+    <Compile Include="SMSDL.cs" />
+    <Compile Include="UserDL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Master.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Master.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="RDMBS_Email.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RDMBS_Email.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="RDMS_SMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RDMS_SMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RBBE\RBBE.csproj">
+      <Project>{74FE0567-CACD-40A7-B3E5-AACB606FAA7E}</Project>
+      <Name>RBBE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

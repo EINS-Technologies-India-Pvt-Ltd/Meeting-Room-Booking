@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EINS_RBMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EINS_RBMSModelStoreContainer">
+    <EntitySet Name="BasicSetting" EntityType="EINS_RBMSModel.Store.BasicSetting" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CanteenRequest" EntityType="EINS_RBMSModel.Store.CanteenRequest" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryMaster" EntityType="EINS_RBMSModel.Store.CategoryMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyMaster" EntityType="EINS_RBMSModel.Store.CompanyMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CountryMaster" EntityType="EINS_RBMSModel.Store.CountryMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DatabaseBackup" EntityType="EINS_RBMSModel.Store.DatabaseBackup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DepartmentMaster" EntityType="EINS_RBMSModel.Store.DepartmentMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DesignationMaster" EntityType="EINS_RBMSModel.Store.DesignationMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DomainInformmation" EntityType="EINS_RBMSModel.Store.DomainInformmation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee_RoomAccessAuthority" EntityType="EINS_RBMSModel.Store.Employee_RoomAccessAuthority" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee_WeekOff" EntityType="EINS_RBMSModel.Store.Employee_WeekOff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeType" EntityType="EINS_RBMSModel.Store.EmployeeType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ErrorLog" EntityType="EINS_RBMSModel.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventLog" EntityType="EINS_RBMSModel.Store.EventLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="feedback" EntityType="EINS_RBMSModel.Store.feedback" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GuestMaster" EntityType="EINS_RBMSModel.Store.GuestMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IT_Request" EntityType="EINS_RBMSModel.Store.IT_Request" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LocationMaster" EntityType="EINS_RBMSModel.Store.LocationMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequestDetails" EntityType="EINS_RBMSModel.Store.RequestDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResourceMaster" EntityType="EINS_RBMSModel.Store.ResourceMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Room_Resources_Map" EntityType="EINS_RBMSModel.Store.Room_Resources_Map" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoomBooking" EntityType="EINS_RBMSModel.Store.RoomBooking" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoomMaster" EntityType="EINS_RBMSModel.Store.RoomMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoomTypeMaster" EntityType="EINS_RBMSModel.Store.RoomTypeMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SectionMaster" EntityType="EINS_RBMSModel.Store.SectionMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StateMaster" EntityType="EINS_RBMSModel.Store.StateMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubCategoryMaster" EntityType="EINS_RBMSModel.Store.SubCategoryMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubSectionMaster" EntityType="EINS_RBMSModel.Store.SubSectionMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserMaster" EntityType="EINS_RBMSModel.Store.UserMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vw_RoomMasterDetailsWithResorceMap" EntityType="EINS_RBMSModel.Store.vw_RoomMasterDetailsWithResorceMap" store:Type="Views" store:Schema="dbo" store:Name="vw_RoomMasterDetailsWithResorceMap">
+      <DefiningQuery>SELECT 
+      [vw_RoomMasterDetailsWithResorceMap].[MapID] AS [MapID], 
+      [vw_RoomMasterDetailsWithResorceMap].[RoomId] AS [RoomId], 
+      [vw_RoomMasterDetailsWithResorceMap].[ResourcesId] AS [ResourcesId], 
+      [vw_RoomMasterDetailsWithResorceMap].[Quantity] AS [Quantity], 
+      [vw_RoomMasterDetailsWithResorceMap].[Status] AS [Status], 
+      [vw_RoomMasterDetailsWithResorceMap].[RoomManualId] AS [RoomManualId], 
+      [vw_RoomMasterDetailsWithResorceMap].[RoomTypeId] AS [RoomTypeId], 
+      [vw_RoomMasterDetailsWithResorceMap].[Name] AS [Name], 
+      [vw_RoomMasterDetailsWithResorceMap].[Description] AS [Description], 
+      [vw_RoomMasterDetailsWithResorceMap].[Capacity] AS [Capacity], 
+      [vw_RoomMasterDetailsWithResorceMap].[Company] AS [Company], 
+      [vw_RoomMasterDetailsWithResorceMap].[Location] AS [Location], 
+      [vw_RoomMasterDetailsWithResorceMap].[RoomImage] AS [RoomImage], 
+      [vw_RoomMasterDetailsWithResorceMap].[BookThroughModerator] AS [BookThroughModerator], 
+      [vw_RoomMasterDetailsWithResorceMap].[BuildingName] AS [BuildingName], 
+      [vw_RoomMasterDetailsWithResorceMap].[Floor] AS [Floor], 
+      [vw_RoomMasterDetailsWithResorceMap].[StreetName] AS [StreetName], 
+      [vw_RoomMasterDetailsWithResorceMap].[CountryId] AS [CountryId], 
+      [vw_RoomMasterDetailsWithResorceMap].[StateId] AS [StateId], 
+      [vw_RoomMasterDetailsWithResorceMap].[City] AS [City], 
+      [vw_RoomMasterDetailsWithResorceMap].[Pincode] AS [Pincode], 
+      [vw_RoomMasterDetailsWithResorceMap].[AddedBy] AS [AddedBy], 
+      [vw_RoomMasterDetailsWithResorceMap].[AddedOn] AS [AddedOn], 
+      [vw_RoomMasterDetailsWithResorceMap].[LastModifiedBy] AS [LastModifiedBy], 
+      [vw_RoomMasterDetailsWithResorceMap].[LastModifiedOn] AS [LastModifiedOn]
+      FROM [dbo].[vw_RoomMasterDetailsWithResorceMap] AS [vw_RoomMasterDetailsWithResorceMap]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_RoomResourceData" EntityType="EINS_RBMSModel.Store.vw_RoomResourceData" store:Type="Views" store:Schema="dbo" store:Name="vw_RoomResourceData">
+      <DefiningQuery>SELECT 
+      [vw_RoomResourceData].[ResourceID] AS [ResourceID], 
+      [vw_RoomResourceData].[ResourceName] AS [ResourceName], 
+      [vw_RoomResourceData].[RoomID] AS [RoomID], 
+      [vw_RoomResourceData].[Quantity] AS [Quantity], 
+      [vw_RoomResourceData].[UsedQuantity] AS [UsedQuantity], 
+      [vw_RoomResourceData].[AvailableQuantity] AS [AvailableQuantity]
+      FROM [dbo].[vw_RoomResourceData] AS [vw_RoomResourceData]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="BasicSetting">
+    <Key>
+      <PropertyRef Name="BasicSettingID" />
+    </Key>
+    <Property Name="BasicSettingID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Activate_Moderator" Type="varchar" MaxLength="50" />
+    <Property Name="CanteenEmailId" Type="varchar" MaxLength="500" />
+    <Property Name="CanteenPersonName" Type="varchar" MaxLength="500" />
+    <Property Name="SettingStatus" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CanteenRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BookingId" Type="bigint" Nullable="false" />
+    <Property Name="TeaQuantity" Type="int" />
+    <Property Name="Tea" Type="nvarchar" MaxLength="50" />
+    <Property Name="CofeeQuantity" Type="int" />
+    <Property Name="Cofee" Type="nvarchar" MaxLength="50" />
+    <Property Name="Snacks" Type="nvarchar" MaxLength="50" />
+    <Property Name="SnackQuantity" Type="int" />
+    <Property Name="AdOns" Type="nvarchar" MaxLength="1000" />
+    <Property Name="RequestStatus" Type="bit" />
+    <Property Name="BookingStatus" Type="bit" />
+    <Property Name="CBook_or_req" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CategoryMaster">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+    <Property Name="CategoryDescription" Type="varchar" MaxLength="500" />
+    <Property Name="CategoryStatus" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CompanyMaster">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyHead" Type="nvarchar" MaxLength="500" />
+    <Property Name="CompanyAlias" Type="nvarchar" MaxLength="500" />
+    <Property Name="CompanyBuilding" Type="nvarchar" MaxLength="500" />
+    <Property Name="Street" Type="nvarchar" MaxLength="200" />
+    <Property Name="CountryId" Type="bigint" />
+    <Property Name="StateId" Type="bigint" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyTelephone" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyEmailid" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyFax" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyWebsite" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyLogo" Type="varbinary(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Country" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DatabaseBackup">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TaskName" Type="varchar" MaxLength="10" />
+    <Property Name="ScheduleType" Type="bit" />
+    <Property Name="Overright" Type="bit" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="FolderName" Type="varchar(max)" />
+    <Property Name="Sunday" Type="bit" />
+    <Property Name="Monday" Type="bit" />
+    <Property Name="Tuesday" Type="bit" />
+    <Property Name="Wednesday" Type="bit" />
+    <Property Name="Thursday" Type="bit" />
+    <Property Name="Friday" Type="bit" />
+    <Property Name="Saturday" Type="bit" />
+    <Property Name="Checkdate" Type="datetime" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="DepartmentMaster">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DesignationMaster">
+    <Key>
+      <PropertyRef Name="DesignationID" />
+    </Key>
+    <Property Name="DesignationID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DesignationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DomainInformmation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DomainName" Type="varchar(max)" />
+    <Property Name="EmailId" Type="varchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Employee_RoomAccessAuthority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmpIds" Type="nvarchar(max)" />
+    <Property Name="RoomId" Type="bigint" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Employee_WeekOff">
+    <Key>
+      <PropertyRef Name="WeekOffID" />
+    </Key>
+    <Property Name="WeekOffID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="bigint" />
+    <Property Name="KeyWord" Type="nvarchar" MaxLength="50" />
+    <Property Name="Day" Type="nvarchar" MaxLength="50" />
+    <Property Name="DayType" Type="nvarchar" MaxLength="50" />
+    <Property Name="First" Type="bit" />
+    <Property Name="Second" Type="bit" />
+    <Property Name="Third" Type="bit" />
+    <Property Name="Fourth" Type="bit" />
+    <Property Name="Fifth" Type="bit" />
+    <Property Name="WeekOffStatus" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EmployeeType">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeTypeName" Type="nvarchar" MaxLength="200" />
+    <Property Name="TypeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="TypeStatus" Type="bit" />
+    <Property Name="IsPeroidic" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="SerialNo" />
+    </Key>
+    <Property Name="SerialNo" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="bigint" />
+    <Property Name="EventDateTime" Type="datetime" />
+    <Property Name="FormName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Method/Event" Type="nvarchar" MaxLength="100" />
+    <Property Name="Error" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="SerialNo" />
+    </Key>
+    <Property Name="SerialNo" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="MachineName" Type="nvarchar" MaxLength="100" />
+    <Property Name="EventDateTime" Type="datetime" />
+    <Property Name="FormName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Action" Type="nvarchar" MaxLength="100" />
+    <Property Name="Result" Type="nvarchar" MaxLength="100" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="BrowserName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="bigint" />
+    <Property Name="question" Type="varchar" MaxLength="500" />
+    <Property Name="Seating_Arrangement" Type="varchar" MaxLength="50" />
+    <Property Name="Canteen_Facility" Type="varchar" MaxLength="50" />
+    <Property Name="IT_Facility" Type="varchar" MaxLength="50" />
+    <Property Name="Room_Environment" Type="varchar" MaxLength="50" />
+    <Property Name="Meeting_Your_Needs" Type="varchar" MaxLength="50" />
+    <Property Name="comment" Type="varchar" MaxLength="500" />
+    <Property Name="MeetingDate" Type="datetime" />
+    <Property Name="RoomId" Type="int" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="GuestMaster">
+    <Key>
+      <PropertyRef Name="GuestId" />
+    </Key>
+    <Property Name="GuestId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BookingId" Type="bigint" />
+    <Property Name="GuestName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GuestCompany" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RequestStatus" Type="bit" />
+    <Property Name="BookingStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="IT_Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BookingId" Type="bigint" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="HardwareRequest" Type="nvarchar" MaxLength="1000" />
+    <Property Name="RequestStatus" Type="bit" />
+    <Property Name="BookingStatus" Type="bit" />
+    <Property Name="Book_or_req" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LocationMaster">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="LocationStatus" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RequestDetails">
+    <Key>
+      <PropertyRef Name="RequestID" />
+    </Key>
+    <Property Name="RequestID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoomDetails" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Capacity" Type="int" />
+    <Property Name="OtherDetails" Type="nvarchar(max)" />
+    <Property Name="RequestDescription" Type="nvarchar(max)" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="FromTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Decision" Type="nvarchar" MaxLength="50" />
+    <Property Name="event" Type="nvarchar(max)" />
+    <Property Name="IT" Type="bit" />
+    <Property Name="Canteen" Type="bit" />
+    <Property Name="RequestedBy" Type="bigint" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ResourceMaster">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Name="ResourceID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AssetCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResourceName" Type="nvarchar(max)" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SerialNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="bigint" />
+    <Property Name="ResourceDescription" Type="nvarchar(max)" />
+    <Property Name="ResourceBoughtFrom" Type="nvarchar" MaxLength="100" />
+    <Property Name="ResourceBoughtOn" Type="datetime" />
+    <Property Name="ResourceImage" Type="varbinary(max)" />
+    <Property Name="SpecificationImage" Type="varbinary(max)" />
+    <Property Name="Transferrable" Type="bit" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Room_Resources_Map">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Name="MapID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoomId" Type="bigint" />
+    <Property Name="ResourcesId" Type="bigint" />
+    <Property Name="Quantity" Type="bigint" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="RoomBooking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoomId" Type="bigint" />
+    <Property Name="BookForId" Type="bigint" />
+    <Property Name="BookFor" Type="nvarchar(max)" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="10" />
+    <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DayType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Event" Type="nvarchar(max)" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="FromTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Capacity" Type="bigint" />
+    <Property Name="Resources" Type="nvarchar(max)" />
+    <Property Name="InvitedUsers" Type="nvarchar(max)" />
+    <Property Name="Canteen" Type="bit" />
+    <Property Name="IT" Type="bit" />
+    <Property Name="Reminder" Type="bit" />
+    <Property Name="ReminderTime" Type="nvarchar(max)" />
+    <Property Name="ReminderFor" Type="nvarchar(max)" />
+    <Property Name="ApprovalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApprovedRejectedOn" Type="datetime" />
+    <Property Name="ApprovedRejectedBy" Type="bigint" />
+    <Property Name="BookinRequestStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookedBy" Type="bigint" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RoomMaster">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoomManualId" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoomTypeId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Capacity" Type="bigint" />
+    <Property Name="Company" Type="bigint" />
+    <Property Name="Location" Type="bigint" />
+    <Property Name="RoomImage" Type="varbinary(max)" />
+    <Property Name="BookThroughModerator" Type="bit" />
+    <Property Name="BuildingName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Floor" Type="nvarchar" MaxLength="500" />
+    <Property Name="StreetName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CountryId" Type="bigint" />
+    <Property Name="StateId" Type="bigint" />
+    <Property Name="City" Type="nvarchar" MaxLength="500" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RoomTypeMaster">
+    <Key>
+      <PropertyRef Name="RoomTypeId" />
+    </Key>
+    <Property Name="RoomTypeId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoomTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoomTypeDescription" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="SectionMaster">
+    <Key>
+      <PropertyRef Name="SectionID" />
+    </Key>
+    <Property Name="SectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SectionName" Type="varchar" MaxLength="200" />
+    <Property Name="SectionHead" Type="varchar" MaxLength="200" />
+    <Property Name="SectionHeadId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="EmailSmsStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="States" Type="nvarchar" MaxLength="255" />
+    <Property Name="CountryId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="SubCategoryMaster">
+    <Key>
+      <PropertyRef Name="SubCategoryId" />
+    </Key>
+    <Property Name="SubCategoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="bigint" />
+    <Property Name="SubCategoryName" Type="varchar" MaxLength="100" />
+    <Property Name="SubCategoryDescription" Type="varchar" MaxLength="500" />
+    <Property Name="SubCategoryStatus" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SubSectionMaster">
+    <Key>
+      <PropertyRef Name="SubsectionID" />
+    </Key>
+    <Property Name="SubsectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubsectionName" Type="varchar" MaxLength="200" />
+    <Property Name="SectionID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="EmailSmsStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeManualID" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmployeeTypeId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Designation" Type="bigint" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="15" />
+    <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="ExtensionNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmpAddress" Type="nvarchar(max)" />
+    <Property Name="ActivationStatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="Photo" Type="varbinary(max)" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+    <Property Name="Company" Type="bigint" />
+    <Property Name="Department" Type="bigint" />
+    <Property Name="Location" Type="bigint" />
+    <Property Name="Category" Type="bigint" />
+    <Property Name="SubCategory" Type="bigint" />
+    <Property Name="ReportingTo" Type="nvarchar" MaxLength="100" />
+    <Property Name="WorkStatus" Type="varchar" MaxLength="50" />
+    <Property Name="ProbationPeroid" Type="int" />
+    <Property Name="EmpJoiningDate" Type="datetime" />
+    <Property Name="ConfirmationDate" Type="datetime" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="WrongAttempt" Type="int" />
+    <Property Name="Locked" Type="bit" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS.dbo.vw_RoomMasterDetailsWithResorceMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="vw_RoomMasterDetailsWithResorceMap">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Name="MapID" Type="bigint" Nullable="false" />
+    <Property Name="RoomId" Type="bigint" />
+    <Property Name="ResourcesId" Type="bigint" />
+    <Property Name="Quantity" Type="bigint" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="RoomManualId" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoomTypeId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Capacity" Type="nvarchar(max)" />
+    <Property Name="Company" Type="bigint" />
+    <Property Name="Location" Type="bigint" />
+    <Property Name="RoomImage" Type="varbinary(max)" />
+    <Property Name="BookThroughModerator" Type="bit" />
+    <Property Name="BuildingName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Floor" Type="nvarchar" MaxLength="500" />
+    <Property Name="StreetName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CountryId" Type="bigint" />
+    <Property Name="StateId" Type="bigint" />
+    <Property Name="City" Type="nvarchar" MaxLength="500" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS.dbo.vw_RoomResourceData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="vw_RoomResourceData">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Name="ResourceID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="nvarchar(max)" />
+    <Property Name="RoomID" Type="bigint" />
+    <Property Name="Quantity" Type="bigint" />
+    <Property Name="UsedQuantity" Type="bigint" />
+    <Property Name="AvailableQuantity" Type="bigint" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EMAILModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EMAILModelStoreContainer">
+    <EntitySet Name="EmailConfiguration" EntityType="EMAILModel.Store.EmailConfiguration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Event_Manager" EntityType="EMAILModel.Store.Event_Manager" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="EmailConfiguration">
+    <Key>
+      <PropertyRef Name="eC_Id" />
+    </Key>
+    <Property Name="eC_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="eC_SMTPServerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="eC_UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="eC_Password" Type="nvarchar" MaxLength="500" />
+    <Property Name="eC_SMTPPort" Type="int" />
+    <Property Name="eC_IsSSLEnabled" Type="bit" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="eC_status" Type="bit" />
+    <Property Name="eC_IsDefault" Type="bit" />
+    <Property Name="eC_IsActive" Type="bit" />
+    <Property Name="eC_signature" Type="nvarchar(max)" />
+    <Property Name="eC_Pop3Server" Type="nvarchar" MaxLength="100" />
+    <Property Name="ec_Pop3Portno" Type="int" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Event_Manager">
+    <Key>
+      <PropertyRef Name="Event_Id" />
+    </Key>
+    <Property Name="Event_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventName" Type="nvarchar" MaxLength="100" />
+    <Property Name="eM_MainModuleId" Type="int" />
+    <Property Name="eM_ModuleId" Type="int" />
+    <Property Name="eM_SectionID" Type="int" />
+    <Property Name="eM_FormId" Type="int" />
+    <Property Name="eM_Event_Id" Type="int" />
+    <Property Name="eM_CompanyId" Type="int" />
+    <Property Name="eM_LocationId" Type="int" />
+    <Property Name="EmployeeBody" Type="nvarchar(max)" />
+    <Property Name="ReportingToBody" Type="nvarchar(max)" />
+    <Property Name="AdminBody" Type="nvarchar(max)" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="int" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+    <Property Name="RuleName" Type="nvarchar(max)" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EINS_RBMSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EINS_RBMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DepartmentMasters" EntityType="EINS_RBMSModel.DepartmentMaster" />
+    <EntitySet Name="LocationMasters" EntityType="EINS_RBMSModel.LocationMaster" />
+    <EntitySet Name="CanteenRequests" EntityType="EINS_RBMSModel.CanteenRequest" />
+    <EntitySet Name="GuestMasters" EntityType="EINS_RBMSModel.GuestMaster" />
+    <EntitySet Name="IT_Request" EntityType="EINS_RBMSModel.IT_Request" />
+    <EntitySet Name="RequestDetails" EntityType="EINS_RBMSModel.RequestDetail" />
+    <EntitySet Name="DomainInformmations" EntityType="EINS_RBMSModel.DomainInformmation" />
+    <EntitySet Name="DesignationMasters" EntityType="EINS_RBMSModel.DesignationMaster" />
+    <EntitySet Name="feedbacks" EntityType="EINS_RBMSModel.feedback" />
+    <EntitySet Name="ErrorLogs" EntityType="EINS_RBMSModel.ErrorLog" />
+    <EntitySet Name="EventLogs" EntityType="EINS_RBMSModel.EventLog" />
+    <EntitySet Name="CategoryMasters" EntityType="EINS_RBMSModel.CategoryMaster" />
+    <EntitySet Name="SubCategoryMasters" EntityType="EINS_RBMSModel.SubCategoryMaster" />
+    <EntitySet Name="RoomTypeMasters" EntityType="EINS_RBMSModel.RoomTypeMaster" />
+    <EntitySet Name="StateMasters" EntityType="EINS_RBMSModel.StateMaster" />
+    <EntitySet Name="CompanyMasters" EntityType="EINS_RBMSModel.CompanyMaster" />
+    <EntitySet Name="CountryMasters" EntityType="EINS_RBMSModel.CountryMaster" />
+    <EntitySet Name="EmployeeTypes" EntityType="EINS_RBMSModel.EmployeeType" />
+    <EntitySet Name="Employee_RoomAccessAuthority" EntityType="EINS_RBMSModel.Employee_RoomAccessAuthority" />
+    <EntitySet Name="SectionMasters" EntityType="EINS_RBMSModel.SectionMaster" />
+    <EntitySet Name="SubSectionMasters" EntityType="EINS_RBMSModel.SubSectionMaster" />
+    <EntitySet Name="vw_RoomMasterDetailsWithResorceMap" EntityType="EINS_RBMSModel.vw_RoomMasterDetailsWithResorceMap" />
+    <EntitySet Name="vw_RoomResourceData" EntityType="EINS_RBMSModel.vw_RoomResourceData" />
+    <EntitySet Name="ResourceMasters" EntityType="EINS_RBMSModel.ResourceMaster" />
+    <EntitySet Name="Room_Resources_Map" EntityType="EINS_RBMSModel.Room_Resources_Map" />
+    <EntitySet Name="RoomMasters" EntityType="EINS_RBMSModel.RoomMaster" />
+    <EntitySet Name="Employee_WeekOff" EntityType="EINS_RBMSModel.Employee_WeekOff" />
+    <EntitySet Name="RoomBookings" EntityType="EINS_RBMSModel.RoomBooking" />
+    <EntitySet Name="DatabaseBackups" EntityType="EINS_RBMSModel.DatabaseBackup" />
+    <EntitySet Name="UserMasters" EntityType="EINS_RBMSModel.UserMaster" />
+    <EntitySet Name="BasicSettings" EntityType="EINS_RBMSModel.BasicSetting" />
+  </EntityContainer>
+  <EntityType Name="DepartmentMaster">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="AddedBy" Type="Int64" />
+    <Property Name="AddedOn" Type="DateTime" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="LocationMaster">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LocationStatus" Type="Boolean" />
+    <Property Name="AddedBy" Type="Int64" />
+    <Property Name="AddedOn" Type="DateTime" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="CanteenRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="BookingId" Nullable="false" />
+    <Property Type="Int32" Name="TeaQuantity" />
+    <Property Type="String" Name="Tea" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CofeeQuantity" />
+    <Property Type="String" Name="Cofee" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Snacks" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SnackQuantity" />
+    <Property Type="String" Name="AdOns" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="RequestStatus" />
+    <Property Type="Boolean" Name="BookingStatus" />
+    <Property Type="String" Name="CBook_or_req" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GuestMaster">
+    <Key>
+      <PropertyRef Name="GuestId" />
+    </Key>
+    <Property Type="Int64" Name="GuestId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="BookingId" />
+    <Property Type="String" Name="GuestName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="GuestCompany" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmailId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="RequestStatus" />
+    <Property Type="Boolean" Name="BookingStatus" />
+  </EntityType>
+  <EntityType Name="IT_Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="BookingId" />
+    <Property Type="Int64" Name="UserID" />
+    <Property Type="String" Name="HardwareRequest" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="RequestStatus" />
+    <Property Type="Boolean" Name="BookingStatus" />
+    <Property Type="String" Name="Book_or_req" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RequestDetail">
+    <Key>
+      <PropertyRef Name="RequestID" />
+    </Key>
+    <Property Type="Int64" Name="RequestID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RoomDetails" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResourceName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Capacity" />
+    <Property Type="String" Name="OtherDetails" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RequestDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FromDate" />
+    <Property Type="DateTime" Name="ToDate" />
+    <Property Type="String" Name="FromTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ToTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="String" Name="Decision" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="event" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IT" />
+    <Property Type="Boolean" Name="Canteen" />
+    <Property Type="Int64" Name="RequestedBy" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="DomainInformmation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DomainName" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailId" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DesignationMaster">
+    <Key>
+      <PropertyRef Name="DesignationID" />
+    </Key>
+    <Property Type="Int64" Name="DesignationID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DesignationName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Type="Int64" Name="FeedbackID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="userid" />
+    <Property Type="String" Name="question" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Seating_Arrangement" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Canteen_Facility" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IT_Facility" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Room_Environment" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Meeting_Your_Needs" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="comment" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="MeetingDate" />
+    <Property Type="Int32" Name="RoomId" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="SerialNo" />
+    </Key>
+    <Property Type="Int64" Name="SerialNo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="EmployeeID" />
+    <Property Type="DateTime" Name="EventDateTime" />
+    <Property Type="String" Name="FormName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Method_Event" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Error" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="SerialNo" />
+    </Key>
+    <Property Type="Int64" Name="SerialNo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="UserID" />
+    <Property Type="String" Name="MachineName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EventDateTime" />
+    <Property Type="String" Name="FormName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Result" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Details" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BrowserName" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CategoryMaster">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int64" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CategoryName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CategoryDescription" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="CategoryStatus" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="DateTime" Name="ModifiedOn" />
+  </EntityType>
+  <EntityType Name="SubCategoryMaster">
+    <Key>
+      <PropertyRef Name="SubCategoryId" />
+    </Key>
+    <Property Type="Int64" Name="SubCategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="CategoryId" />
+    <Property Type="String" Name="SubCategoryName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SubCategoryDescription" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="SubCategoryStatus" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="DateTime" Name="ModifiedOn" />
+  </EntityType>
+  <EntityType Name="RoomTypeMaster">
+    <Key>
+      <PropertyRef Name="RoomTypeId" />
+    </Key>
+    <Property Type="Int64" Name="RoomTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RoomTypeName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RoomTypeDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Status" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="States" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="CountryId" />
+  </EntityType>
+  <EntityType Name="CompanyMaster">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Type="Int64" Name="CompanyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CompanyName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyHead" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyAlias" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyBuilding" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Street" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="CountryId" />
+    <Property Type="Int64" Name="StateId" />
+    <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Pincode" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyTelephone" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyEmailid" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyFax" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyWebsite" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="CompanyLogo" MaxLength="Max" FixedLength="false" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Type="Int64" Name="CountryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Country" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmployeeType">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Type="Int32" Name="TypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="EmployeeTypeName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TypeDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="TypeStatus" />
+    <Property Type="Boolean" Name="IsPeroidic" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="Employee_RoomAccessAuthority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="EmpIds" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="RoomId" />
+    <Property Type="Boolean" Name="Status" />
+  </EntityType>
+  <EntityType Name="SectionMaster">
+    <Key>
+      <PropertyRef Name="SectionID" />
+    </Key>
+    <Property Type="Int32" Name="SectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SectionName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SectionHead" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="SectionHeadId" Nullable="false" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Boolean" Name="EmailSmsStatus" />
+  </EntityType>
+  <EntityType Name="SubSectionMaster">
+    <Key>
+      <PropertyRef Name="SubsectionID" />
+    </Key>
+    <Property Type="Int32" Name="SubsectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SubsectionName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="SectionID" Nullable="false" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Boolean" Name="EmailSmsStatus" />
+  </EntityType>
+  <EntityType Name="vw_RoomMasterDetailsWithResorceMap">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Type="Int64" Name="MapID" Nullable="false" />
+    <Property Type="Int64" Name="RoomId" />
+    <Property Type="Int64" Name="ResourcesId" />
+    <Property Type="Int32" Name="Quantity" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="String" Name="RoomManualId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="RoomTypeId" />
+    <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Capacity" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Company" />
+    <Property Type="Int64" Name="Location" />
+    <Property Type="Binary" Name="RoomImage" MaxLength="Max" FixedLength="false" />
+    <Property Type="Boolean" Name="BookThroughModerator" />
+    <Property Type="String" Name="BuildingName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Floor" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StreetName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="CountryId" />
+    <Property Type="Int64" Name="StateId" />
+    <Property Type="String" Name="City" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Pincode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="vw_RoomResourceData">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Type="Int64" Name="ResourceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ResourceName" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="RoomID" />
+    <Property Type="Int32" Name="Quantity" />
+    <Property Type="Int32" Name="UsedQuantity" />
+    <Property Type="Int32" Name="AvailableQuantity" />
+  </EntityType>
+  <EntityType Name="ResourceMaster">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Type="Int64" Name="ResourceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AssetCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResourceName" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Brand" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ModelNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SerialNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Quantity" />
+    <Property Type="String" Name="ResourceDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResourceBoughtFrom" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ResourceBoughtOn" />
+    <Property Type="Binary" Name="ResourceImage" MaxLength="Max" FixedLength="false" />
+    <Property Type="Binary" Name="SpecificationImage" MaxLength="Max" FixedLength="false" />
+    <Property Type="Boolean" Name="Transferrable" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="Room_Resources_Map">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Type="Int64" Name="MapID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="RoomId" />
+    <Property Type="Int64" Name="ResourcesId" />
+    <Property Type="Int64" Name="Quantity" />
+    <Property Type="Boolean" Name="Status" />
+  </EntityType>
+  <EntityType Name="RoomMaster">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Type="Int64" Name="RoomId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RoomManualId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="RoomTypeId" />
+    <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Capacity" />
+    <Property Type="Int64" Name="Company" />
+    <Property Type="Int64" Name="Location" />
+    <Property Type="Binary" Name="RoomImage" MaxLength="Max" FixedLength="false" />
+    <Property Type="Boolean" Name="BookThroughModerator" />
+    <Property Type="String" Name="BuildingName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Floor" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StreetName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="CountryId" />
+    <Property Type="Int64" Name="StateId" />
+    <Property Type="String" Name="City" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Pincode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="Employee_WeekOff">
+    <Key>
+      <PropertyRef Name="WeekOffID" />
+    </Key>
+    <Property Type="Int64" Name="WeekOffID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="EmployeeID" />
+    <Property Type="String" Name="KeyWord" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Day" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DayType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="First" />
+    <Property Type="Boolean" Name="Second" />
+    <Property Type="Boolean" Name="Third" />
+    <Property Type="Boolean" Name="Fourth" />
+    <Property Type="Boolean" Name="Fifth" />
+    <Property Type="Boolean" Name="WeekOffStatus" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="RoomBooking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Type="Int64" Name="BookingId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="RoomId" />
+    <Property Type="Int64" Name="BookForId" />
+    <Property Type="String" Name="BookFor" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileNo" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DayType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Event" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FromDate" />
+    <Property Type="DateTime" Name="ToDate" />
+    <Property Type="String" Name="FromTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ToTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Capacity" />
+    <Property Type="String" Name="Resources" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvitedUsers" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Canteen" />
+    <Property Type="Boolean" Name="IT" />
+    <Property Type="Boolean" Name="Reminder" />
+    <Property Type="String" Name="ReminderTime" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReminderFor" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApprovalStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ApprovedRejectedOn" />
+    <Property Type="Int64" Name="ApprovedRejectedBy" />
+    <Property Type="String" Name="BookinRequestStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="BookedBy" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="DatabaseBackup">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Type="Int32" Name="TaskID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TaskName" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="ScheduleType" />
+    <Property Type="Boolean" Name="Overright" />
+    <Property Type="DateTime" Name="StartTime" />
+    <Property Type="String" Name="FolderName" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Sunday" />
+    <Property Type="Boolean" Name="Monday" />
+    <Property Type="Boolean" Name="Tuesday" />
+    <Property Type="Boolean" Name="Wednesday" />
+    <Property Type="Boolean" Name="Thursday" />
+    <Property Type="Boolean" Name="Friday" />
+    <Property Type="Boolean" Name="Saturday" />
+    <Property Type="DateTime" Name="Checkdate" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+    <Property Type="Boolean" Name="Status" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="EmployeeManualID" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="EmployeeTypeId" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Designation" />
+    <Property Type="String" Name="CountryCode" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Mobile" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DOB" />
+    <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExtensionNo" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserType" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmpAddress" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ActivationStatus" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
+    <Property Type="String" Name="LoginName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Company" />
+    <Property Type="Int64" Name="Department" />
+    <Property Type="Int64" Name="Location" />
+    <Property Type="Int64" Name="Category" />
+    <Property Type="Int64" Name="SubCategory" />
+    <Property Type="String" Name="ReportingTo" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WorkStatus" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ProbationPeroid" />
+    <Property Type="DateTime" Name="EmpJoiningDate" />
+    <Property Type="DateTime" Name="ConfirmationDate" />
+    <Property Type="DateTime" Name="FromDate" />
+    <Property Type="DateTime" Name="ToDate" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="Int32" Name="WrongAttempt" />
+    <Property Type="Boolean" Name="Locked" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+  <EntityType Name="BasicSetting">
+    <Key>
+      <PropertyRef Name="BasicSettingID" />
+    </Key>
+    <Property Type="Int64" Name="BasicSettingID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Activate_Moderator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CanteenEmailId" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CanteenPersonName" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="SettingStatus" />
+    <Property Type="Int64" Name="AddedBy" />
+    <Property Type="DateTime" Name="AddedOn" />
+    <Property Type="Int64" Name="LastModifiedBy" />
+    <Property Type="DateTime" Name="LastModifiedOn" />
+  </EntityType>
+</Schema>

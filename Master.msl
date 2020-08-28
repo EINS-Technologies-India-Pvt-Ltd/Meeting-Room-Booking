@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EINS_RBMSModelStoreContainer" CdmEntityContainer="EINS_RBMSEntities">
+    <EntitySetMapping Name="DepartmentMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.DepartmentMaster">
+        <MappingFragment StoreEntitySet="DepartmentMaster">
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.LocationMaster">
+        <MappingFragment StoreEntitySet="LocationMaster">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LocationStatus" ColumnName="LocationStatus" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CanteenRequests">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.CanteenRequest">
+        <MappingFragment StoreEntitySet="CanteenRequest">
+          <ScalarProperty Name="CBook_or_req" ColumnName="CBook_or_req" />
+          <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="AdOns" ColumnName="AdOns" />
+          <ScalarProperty Name="SnackQuantity" ColumnName="SnackQuantity" />
+          <ScalarProperty Name="Snacks" ColumnName="Snacks" />
+          <ScalarProperty Name="Cofee" ColumnName="Cofee" />
+          <ScalarProperty Name="CofeeQuantity" ColumnName="CofeeQuantity" />
+          <ScalarProperty Name="Tea" ColumnName="Tea" />
+          <ScalarProperty Name="TeaQuantity" ColumnName="TeaQuantity" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuestMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.GuestMaster">
+        <MappingFragment StoreEntitySet="GuestMaster">
+          <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="GuestCompany" ColumnName="GuestCompany" />
+          <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IT_Request">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.IT_Request">
+        <MappingFragment StoreEntitySet="IT_Request">
+          <ScalarProperty Name="Book_or_req" ColumnName="Book_or_req" />
+          <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="HardwareRequest" ColumnName="HardwareRequest" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestDetails">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.RequestDetail">
+        <MappingFragment StoreEntitySet="RequestDetails">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="RequestedBy" ColumnName="RequestedBy" />
+          <ScalarProperty Name="Canteen" ColumnName="Canteen" />
+          <ScalarProperty Name="IT" ColumnName="IT" />
+          <ScalarProperty Name="event" ColumnName="event" />
+          <ScalarProperty Name="Decision" ColumnName="Decision" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
+          <ScalarProperty Name="OtherDetails" ColumnName="OtherDetails" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="RoomDetails" ColumnName="RoomDetails" />
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DomainInformmations">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.DomainInformmation">
+        <MappingFragment StoreEntitySet="DomainInformmation">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DesignationMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.DesignationMaster">
+        <MappingFragment StoreEntitySet="DesignationMaster">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="MeetingDate" ColumnName="MeetingDate" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="Meeting_Your_Needs" ColumnName="Meeting_Your_Needs" />
+          <ScalarProperty Name="Room_Environment" ColumnName="Room_Environment" />
+          <ScalarProperty Name="IT_Facility" ColumnName="IT_Facility" />
+          <ScalarProperty Name="Canteen_Facility" ColumnName="Canteen_Facility" />
+          <ScalarProperty Name="Seating_Arrangement" ColumnName="Seating_Arrangement" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLog">
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="Method_Event" ColumnName="Method/Event" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="EventDateTime" ColumnName="EventDateTime" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventLogs">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.EventLog">
+        <MappingFragment StoreEntitySet="EventLog">
+          <ScalarProperty Name="BrowserName" ColumnName="BrowserName" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="EventDateTime" ColumnName="EventDateTime" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.CategoryMaster">
+        <MappingFragment StoreEntitySet="CategoryMaster">
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="CategoryStatus" ColumnName="CategoryStatus" />
+          <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategoryMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.SubCategoryMaster">
+        <MappingFragment StoreEntitySet="SubCategoryMaster">
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="SubCategoryStatus" ColumnName="SubCategoryStatus" />
+          <ScalarProperty Name="SubCategoryDescription" ColumnName="SubCategoryDescription" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTypeMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.RoomTypeMaster">
+        <MappingFragment StoreEntitySet="RoomTypeMaster">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoomTypeDescription" ColumnName="RoomTypeDescription" />
+          <ScalarProperty Name="RoomTypeName" ColumnName="RoomTypeName" />
+          <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.StateMaster">
+        <MappingFragment StoreEntitySet="StateMaster">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="States" ColumnName="States" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.CompanyMaster">
+        <MappingFragment StoreEntitySet="CompanyMaster">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="CompanyWebsite" ColumnName="CompanyWebsite" />
+          <ScalarProperty Name="CompanyFax" ColumnName="CompanyFax" />
+          <ScalarProperty Name="CompanyEmailid" ColumnName="CompanyEmailid" />
+          <ScalarProperty Name="CompanyTelephone" ColumnName="CompanyTelephone" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="CompanyBuilding" ColumnName="CompanyBuilding" />
+          <ScalarProperty Name="CompanyAlias" ColumnName="CompanyAlias" />
+          <ScalarProperty Name="CompanyHead" ColumnName="CompanyHead" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.CountryMaster">
+        <MappingFragment StoreEntitySet="CountryMaster">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTypes">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.EmployeeType">
+        <MappingFragment StoreEntitySet="EmployeeType">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="IsPeroidic" ColumnName="IsPeroidic" />
+          <ScalarProperty Name="TypeStatus" ColumnName="TypeStatus" />
+          <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+          <ScalarProperty Name="EmployeeTypeName" ColumnName="EmployeeTypeName" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_RoomAccessAuthority">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.Employee_RoomAccessAuthority">
+        <MappingFragment StoreEntitySet="Employee_RoomAccessAuthority">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="EmpIds" ColumnName="EmpIds" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectionMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.SectionMaster">
+        <MappingFragment StoreEntitySet="SectionMaster">
+          <ScalarProperty Name="EmailSmsStatus" ColumnName="EmailSmsStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SectionHeadId" ColumnName="SectionHeadId" />
+          <ScalarProperty Name="SectionHead" ColumnName="SectionHead" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubSectionMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.SubSectionMaster">
+        <MappingFragment StoreEntitySet="SubSectionMaster">
+          <ScalarProperty Name="EmailSmsStatus" ColumnName="EmailSmsStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="SubsectionName" ColumnName="SubsectionName" />
+          <ScalarProperty Name="SubsectionID" ColumnName="SubsectionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_RoomMasterDetailsWithResorceMap">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.vw_RoomMasterDetailsWithResorceMap">
+        <MappingFragment StoreEntitySet="vw_RoomMasterDetailsWithResorceMap">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="BookThroughModerator" ColumnName="BookThroughModerator" />
+          <ScalarProperty Name="RoomImage" ColumnName="RoomImage" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+          <ScalarProperty Name="RoomManualId" ColumnName="RoomManualId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ResourcesId" ColumnName="ResourcesId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="MapID" ColumnName="MapID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_RoomResourceData">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.vw_RoomResourceData">
+        <MappingFragment StoreEntitySet="vw_RoomResourceData">
+          <ScalarProperty Name="AvailableQuantity" ColumnName="AvailableQuantity" />
+          <ScalarProperty Name="UsedQuantity" ColumnName="UsedQuantity" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResourceMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.ResourceMaster">
+        <MappingFragment StoreEntitySet="ResourceMaster">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Transferrable" ColumnName="Transferrable" />
+          <ScalarProperty Name="SpecificationImage" ColumnName="SpecificationImage" />
+          <ScalarProperty Name="ResourceImage" ColumnName="ResourceImage" />
+          <ScalarProperty Name="ResourceBoughtOn" ColumnName="ResourceBoughtOn" />
+          <ScalarProperty Name="ResourceBoughtFrom" ColumnName="ResourceBoughtFrom" />
+          <ScalarProperty Name="ResourceDescription" ColumnName="ResourceDescription" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="AssetCode" ColumnName="AssetCode" />
+          <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Resources_Map">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.Room_Resources_Map">
+        <MappingFragment StoreEntitySet="Room_Resources_Map">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ResourcesId" ColumnName="ResourcesId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="MapID" ColumnName="MapID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.RoomMaster">
+        <MappingFragment StoreEntitySet="RoomMaster">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="BookThroughModerator" ColumnName="BookThroughModerator" />
+          <ScalarProperty Name="RoomImage" ColumnName="RoomImage" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+          <ScalarProperty Name="RoomManualId" ColumnName="RoomManualId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_WeekOff">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.Employee_WeekOff">
+        <MappingFragment StoreEntitySet="Employee_WeekOff">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="WeekOffStatus" ColumnName="WeekOffStatus" />
+          <ScalarProperty Name="Fifth" ColumnName="Fifth" />
+          <ScalarProperty Name="Fourth" ColumnName="Fourth" />
+          <ScalarProperty Name="Third" ColumnName="Third" />
+          <ScalarProperty Name="Second" ColumnName="Second" />
+          <ScalarProperty Name="First" ColumnName="First" />
+          <ScalarProperty Name="DayType" ColumnName="DayType" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="WeekOffID" ColumnName="WeekOffID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomBookings">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.RoomBooking">
+        <MappingFragment StoreEntitySet="RoomBooking">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BookedBy" ColumnName="BookedBy" />
+          <ScalarProperty Name="BookinRequestStatus" ColumnName="BookinRequestStatus" />
+          <ScalarProperty Name="ApprovedRejectedBy" ColumnName="ApprovedRejectedBy" />
+          <ScalarProperty Name="ApprovedRejectedOn" ColumnName="ApprovedRejectedOn" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+          <ScalarProperty Name="ReminderFor" ColumnName="ReminderFor" />
+          <ScalarProperty Name="ReminderTime" ColumnName="ReminderTime" />
+          <ScalarProperty Name="Reminder" ColumnName="Reminder" />
+          <ScalarProperty Name="IT" ColumnName="IT" />
+          <ScalarProperty Name="Canteen" ColumnName="Canteen" />
+          <ScalarProperty Name="InvitedUsers" ColumnName="InvitedUsers" />
+          <ScalarProperty Name="Resources" ColumnName="Resources" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="DayType" ColumnName="DayType" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="BookFor" ColumnName="BookFor" />
+          <ScalarProperty Name="BookForId" ColumnName="BookForId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatabaseBackups">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.DatabaseBackup">
+        <MappingFragment StoreEntitySet="DatabaseBackup">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Checkdate" ColumnName="Checkdate" />
+          <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Overright" ColumnName="Overright" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMasters">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.UserMaster">
+        <MappingFragment StoreEntitySet="UserMaster">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Locked" ColumnName="Locked" />
+          <ScalarProperty Name="WrongAttempt" ColumnName="WrongAttempt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
+          <ScalarProperty Name="EmpJoiningDate" ColumnName="EmpJoiningDate" />
+          <ScalarProperty Name="ProbationPeroid" ColumnName="ProbationPeroid" />
+          <ScalarProperty Name="WorkStatus" ColumnName="WorkStatus" />
+          <ScalarProperty Name="ReportingTo" ColumnName="ReportingTo" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="ActivationStatus" ColumnName="ActivationStatus" />
+          <ScalarProperty Name="EmpAddress" ColumnName="EmpAddress" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="ExtensionNo" ColumnName="ExtensionNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+          <ScalarProperty Name="EmployeeManualID" ColumnName="EmployeeManualID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BasicSettings">
+      <EntityTypeMapping TypeName="EINS_RBMSModel.BasicSetting">
+        <MappingFragment StoreEntitySet="BasicSetting">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="SettingStatus" ColumnName="SettingStatus" />
+          <ScalarProperty Name="CanteenPersonName" ColumnName="CanteenPersonName" />
+          <ScalarProperty Name="CanteenEmailId" ColumnName="CanteenEmailId" />
+          <ScalarProperty Name="Activate_Moderator" ColumnName="Activate_Moderator" />
+          <ScalarProperty Name="BasicSettingID" ColumnName="BasicSettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EINS_RBMS_SMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EINS_RBMS_SMSModelStoreContainer">
+          <EntitySet Name="AdditionalContacts" EntityType="EINS_RBMS_SMSModel.Store.AdditionalContacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventManager" EntityType="EINS_RBMS_SMSModel.Store.EventManager" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Group_Details" EntityType="EINS_RBMS_SMSModel.Store.Group_Details" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sent" EntityType="EINS_RBMS_SMSModel.Store.Sent" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="AdditionalContacts">
+          <Key>
+            <PropertyRef Name="AdditionalContId" />
+          </Key>
+          <Property Name="AdditionalContId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactName" Type="varchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="AddedBy" Type="bigint" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="bigint" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EventManager">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+          </Key>
+          <Property Name="Event_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="100" />
+          <Property Name="eM_ModuleId" Type="int" />
+          <Property Name="eM_FormId" Type="int" />
+          <Property Name="eM_Event_Id" Type="int" />
+          <Property Name="eM_CompanyId" Type="int" />
+          <Property Name="eM_LocationId" Type="int" />
+          <Property Name="CommonSMSBody" Type="nvarchar(max)" />
+          <Property Name="HostSMSBody" Type="nvarchar(max)" />
+          <Property Name="VisitorSMSBody" Type="nvarchar(max)" />
+          <Property Name="EmployeeContact" Type="nvarchar(max)" />
+          <Property Name="AdditionalContact" Type="nvarchar(max)" />
+          <Property Name="GroupIds" Type="nvarchar(max)" />
+          <Property Name="CheckForHost" Type="bit" />
+          <Property Name="CheckForVisitor" Type="bit" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="int" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Group_Details">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="varchar" MaxLength="100" />
+          <Property Name="GroupDescription" Type="varchar" MaxLength="500" />
+          <Property Name="Grp_Contacts_Emp" Type="varchar(max)" />
+          <Property Name="Grp_Contacts_Add" Type="varchar(max)" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="LocationId" Type="int" />
+          <Property Name="status" Type="bit" />
+          <Property Name="AddedBy" Type="bigint" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="bigint" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sent">
+          <Key>
+            <PropertyRef Name="SentId" />
+          </Key>
+          <Property Name="SentId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Message_Status" Type="varchar" MaxLength="20" />
+          <Property Name="FormName" Type="varchar" MaxLength="50" />
+          <Property Name="ScheduleId" Type="bigint" />
+          <Property Name="AppointmentId" Type="bigint" />
+          <Property Name="AddedBy" Type="bigint" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="Sms_Status" Type="bit" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EINS_RBMS_SMSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EINS_RBMS_SMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Sents" EntityType="EINS_RBMS_SMSModel.Sent" />
+          <EntitySet Name="EventsManagers" EntityType="EINS_RBMS_SMSModel.EventsManager" />
+          <EntitySet Name="AdditionalContacts" EntityType="EINS_RBMS_SMSModel.AdditionalContact" />
+          <EntitySet Name="Group_Details" EntityType="EINS_RBMS_SMSModel.Group_Details" />
+        </EntityContainer>
+        <EntityType Name="Sent">
+          <Key>
+            <PropertyRef Name="SentId" />
+          </Key>
+          <Property Name="SentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+          <Property Name="ContactNo" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Message_Status" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="FormName" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ScheduleId" Type="Int64" />
+          <Property Name="AppointmentId" Type="Int64" />
+          <Property Name="AddedBy" Type="Int64" />
+          <Property Name="AddedOn" Type="DateTime" />
+          <Property Name="Sms_Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="EventsManager">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+          </Key>
+          <Property Type="Int32" Name="Event_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EventName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="eM_ModuleId" />
+          <Property Type="Int32" Name="eM_FormId" />
+          <Property Type="Int32" Name="eM_Event_Id" />
+          <Property Type="Int32" Name="eM_CompanyId" />
+          <Property Type="Int32" Name="eM_LocationId" />
+          <Property Type="String" Name="CommonSMSBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HostSMSBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VisitorSMSBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeContact" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdditionalContact" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GroupIds" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="CheckForHost" />
+          <Property Type="Boolean" Name="CheckForVisitor" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedOn" />
+          <Property Type="Int32" Name="LastModifiedBy" />
+          <Property Type="DateTime" Name="LastModifiedOn" />
+        </EntityType>
+        <EntityType Name="AdditionalContact">
+          <Key>
+            <PropertyRef Name="AdditionalContId" />
+          </Key>
+          <Property Type="Int32" Name="AdditionalContId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ContactName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedOn" />
+          <Property Type="Int64" Name="LastModifiedBy" />
+          <Property Type="DateTime" Name="LastModifiedOn" />
+        </EntityType>
+        <EntityType Name="Group_Details">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Type="Int32" Name="GroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GroupName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="GroupDescription" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Grp_Contacts_Emp" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Grp_Contacts_Add" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CompanyId" />
+          <Property Type="Int32" Name="LocationId" />
+          <Property Type="Boolean" Name="status" />
+          <Property Type="Int64" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedOn" />
+          <Property Type="Int64" Name="LastModifiedBy" />
+          <Property Type="DateTime" Name="LastModifiedOn" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EINS_RBMS_SMSModelStoreContainer" CdmEntityContainer="EINS_RBMS_SMSEntities">
+          <EntitySetMapping Name="Sents"><EntityTypeMapping TypeName="EINS_RBMS_SMSModel.Sent"><MappingFragment StoreEntitySet="Sent">
+            <ScalarProperty Name="SentId" ColumnName="SentId" />
+            <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Message" ColumnName="Message" />
+            <ScalarProperty Name="Message_Status" ColumnName="Message_Status" />
+            <ScalarProperty Name="FormName" ColumnName="FormName" />
+            <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+            <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+            <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+            <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+            <ScalarProperty Name="Sms_Status" ColumnName="Sms_Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EventsManagers">
+            <EntityTypeMapping TypeName="EINS_RBMS_SMSModel.EventsManager">
+              <MappingFragment StoreEntitySet="EventManager">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="CheckForVisitor" ColumnName="CheckForVisitor" />
+                <ScalarProperty Name="CheckForHost" ColumnName="CheckForHost" />
+                <ScalarProperty Name="GroupIds" ColumnName="GroupIds" />
+                <ScalarProperty Name="AdditionalContact" ColumnName="AdditionalContact" />
+                <ScalarProperty Name="EmployeeContact" ColumnName="EmployeeContact" />
+                <ScalarProperty Name="VisitorSMSBody" ColumnName="VisitorSMSBody" />
+                <ScalarProperty Name="HostSMSBody" ColumnName="HostSMSBody" />
+                <ScalarProperty Name="CommonSMSBody" ColumnName="CommonSMSBody" />
+                <ScalarProperty Name="eM_LocationId" ColumnName="eM_LocationId" />
+                <ScalarProperty Name="eM_CompanyId" ColumnName="eM_CompanyId" />
+                <ScalarProperty Name="eM_Event_Id" ColumnName="eM_Event_Id" />
+                <ScalarProperty Name="eM_FormId" ColumnName="eM_FormId" />
+                <ScalarProperty Name="eM_ModuleId" ColumnName="eM_ModuleId" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdditionalContacts">
+            <EntityTypeMapping TypeName="EINS_RBMS_SMSModel.AdditionalContact">
+              <MappingFragment StoreEntitySet="AdditionalContacts">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="AdditionalContId" ColumnName="AdditionalContId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Group_Details">
+            <EntityTypeMapping TypeName="EINS_RBMS_SMSModel.Group_Details">
+              <MappingFragment StoreEntitySet="Group_Details">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Grp_Contacts_Add" ColumnName="Grp_Contacts_Add" />
+                <ScalarProperty Name="Grp_Contacts_Emp" ColumnName="Grp_Contacts_Emp" />
+                <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RDMS_SMS" ZoomLevel="61">
+        <EntityTypeShape EntityType="EINS_RBMS_SMSModel.Sent" PointX="2.75" PointY="3.75" Width="1.5" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="EINS_RBMS_SMSModel.EventsManager" Width="1.5" PointX="5.375" PointY="0.75" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="EINS_RBMS_SMSModel.AdditionalContact" Width="1.5" PointX="5.375" PointY="6.75" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="EINS_RBMS_SMSModel.Group_Details" Width="1.5" PointX="7.375" PointY="0.75" Height="3.3263964843749996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

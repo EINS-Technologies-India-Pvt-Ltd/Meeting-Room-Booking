@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EINS_RBMS_EMAILModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EINS_RBMS_EMAILModelStoreContainer">
+          <EntitySet Name="Columns" EntityType="EINS_RBMS_EMAILModel.Store.Columns" store:Type="Tables" store:Schema="dbo" store:Name="Columns">
+            <DefiningQuery>SELECT 
+      [Columns].[ColumnID] AS [ColumnID], 
+      [Columns].[ColumnName] AS [ColumnName], 
+      [Columns].[DbColumnName] AS [DbColumnName], 
+      [Columns].[DbtableName] AS [DbtableName], 
+      [Columns].[FormID] AS [FormID], 
+      [Columns].[Priority] AS [Priority], 
+      [Columns].[status] AS [status]
+      FROM [dbo].[Columns] AS [Columns]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmailConfiguration" EntityType="EINS_RBMS_EMAILModel.Store.EmailConfiguration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventManager" EntityType="EINS_RBMS_EMAILModel.Store.EventManager" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Events" EntityType="EINS_RBMS_EMAILModel.Store.Events" store:Type="Tables" store:Schema="dbo" store:Name="Events">
+            <DefiningQuery>SELECT 
+      [Events].[EventsID] AS [EventsID], 
+      [Events].[EventsName] AS [EventsName], 
+      [Events].[FormID] AS [FormID], 
+      [Events].[status] AS [status]
+      FROM [dbo].[Events] AS [Events]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Forms" EntityType="EINS_RBMS_EMAILModel.Store.Forms" store:Type="Tables" store:Schema="dbo" store:Name="Forms">
+            <DefiningQuery>SELECT 
+      [Forms].[FormID] AS [FormID], 
+      [Forms].[FormName] AS [FormName], 
+      [Forms].[ModuleID] AS [ModuleID], 
+      [Forms].[MessageBox1] AS [MessageBox1], 
+      [Forms].[MessageBox2] AS [MessageBox2], 
+      [Forms].[MessageBox3] AS [MessageBox3], 
+      [Forms].[MessageBox1_Contacts] AS [MessageBox1_Contacts], 
+      [Forms].[MessageBox2_Contacts] AS [MessageBox2_Contacts], 
+      [Forms].[MessageBox3_Contacts] AS [MessageBox3_Contacts], 
+      [Forms].[status] AS [status]
+      FROM [dbo].[Forms] AS [Forms]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Modules" EntityType="EINS_RBMS_EMAILModel.Store.Modules" store:Type="Tables" store:Schema="dbo" store:Name="Modules">
+            <DefiningQuery>SELECT 
+      [Modules].[ModuleID] AS [ModuleID], 
+      [Modules].[ModuleName] AS [ModuleName], 
+      [Modules].[status] AS [status]
+      FROM [dbo].[Modules] AS [Modules]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TableStructure" EntityType="EINS_RBMS_EMAILModel.Store.TableStructure" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Columns' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Columns">
+          <Key>
+            <PropertyRef Name="ColumnID" />
+          </Key>
+          <Property Name="ColumnID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ColumnName" Type="varchar" MaxLength="100" />
+          <Property Name="DbColumnName" Type="varchar" MaxLength="100" />
+          <Property Name="DbtableName" Type="varchar" MaxLength="100" />
+          <Property Name="FormID" Type="int" />
+          <Property Name="Priority" Type="bit" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="EmailConfiguration">
+          <Key>
+            <PropertyRef Name="eC_Id" />
+          </Key>
+          <Property Name="eC_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="eC_SMTPServerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="eC_UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="eC_Password" Type="nvarchar" MaxLength="500" />
+          <Property Name="eC_SMTPPort" Type="int" />
+          <Property Name="eC_IsSSLEnabled" Type="bit" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="LocationId" Type="int" />
+          <Property Name="eC_status" Type="bit" />
+          <Property Name="eC_IsDefault" Type="bit" />
+          <Property Name="eC_IsActive" Type="bit" />
+          <Property Name="eC_signature" Type="nvarchar(max)" />
+          <Property Name="eC_Pop3Server" Type="nvarchar" MaxLength="100" />
+          <Property Name="ec_Pop3Portno" Type="int" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddedBy" Type="bigint" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="bigint" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EventManager">
+          <Key>
+            <PropertyRef Name="eM_Id" />
+          </Key>
+          <Property Name="eM_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="eM_ModuleId" Type="int" />
+          <Property Name="eM_FormId" Type="int" />
+          <Property Name="eM_Events_Id" Type="int" />
+          <Property Name="eM_CompanyId" Type="int" />
+          <Property Name="eM_LocationId" Type="int" />
+          <Property Name="eM_ConfigId" Type="int" />
+          <Property Name="eM_RuleName" Type="nvarchar" MaxLength="100" />
+          <Property Name="eM_Subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="eM_CommonEmailBody" Type="nvarchar(max)" />
+          <Property Name="eM_HostEmailBody" Type="nvarchar(max)" />
+          <Property Name="eM_VisitorEmailBody" Type="nvarchar(max)" />
+          <Property Name="eM_Priority" Type="nvarchar" MaxLength="50" />
+          <Property Name="eM_Reciepients" Type="nvarchar" MaxLength="200" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="int" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+          <Property Name="eM_Department" Type="int" />
+          <Property Name="eM_TemplateId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Events' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventsID" />
+          </Key>
+          <Property Name="EventsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventsName" Type="varchar" MaxLength="100" />
+          <Property Name="FormID" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Forms' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Forms">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Name="FormID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FormName" Type="varchar" MaxLength="100" />
+          <Property Name="ModuleID" Type="int" />
+          <Property Name="MessageBox1" Type="bit" />
+          <Property Name="MessageBox2" Type="bit" />
+          <Property Name="MessageBox3" Type="bit" />
+          <Property Name="MessageBox1_Contacts" Type="nvarchar(max)" />
+          <Property Name="MessageBox2_Contacts" Type="nvarchar(max)" />
+          <Property Name="MessageBox3_Contacts" Type="nvarchar(max)" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Modules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleName" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="TableStructure">
+          <Key>
+            <PropertyRef Name="tS_Id" />
+          </Key>
+          <Property Name="tS_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tS_Query" Type="nvarchar(max)" />
+          <Property Name="tS_FormName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="tS_ControlName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DataBaseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Select_Clause" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddedBy" Type="bigint" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="bigint" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EINS_RBMS_EMAILModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EINS_RBMS_EMAILEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Columns" EntityType="EINS_RBMS_EMAILModel.Column" />
+          <EntitySet Name="EmailConfigurations" EntityType="EINS_RBMS_EMAILModel.EmailConfiguration" />
+          <EntitySet Name="Events" EntityType="EINS_RBMS_EMAILModel.Event" />
+          <EntitySet Name="Forms" EntityType="EINS_RBMS_EMAILModel.Form" />
+          <EntitySet Name="Modules" EntityType="EINS_RBMS_EMAILModel.Module" />
+          <EntitySet Name="TableStructures" EntityType="EINS_RBMS_EMAILModel.TableStructure" />
+          <EntitySet Name="EventManagers" EntityType="EINS_RBMS_EMAILModel.EventManager" />
+        </EntityContainer>
+        <EntityType Name="Column">
+          <Key>
+            <PropertyRef Name="ColumnID" />
+          </Key>
+          <Property Name="ColumnID" Type="Int32" Nullable="false" />
+          <Property Name="ColumnName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DbColumnName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DbtableName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FormID" Type="Int32" />
+          <Property Name="Priority" Type="Boolean" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="EmailConfiguration">
+          <Key>
+            <PropertyRef Name="eC_Id" />
+          </Key>
+          <Property Name="eC_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eC_SMTPServerName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="eC_UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="eC_Password" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="eC_SMTPPort" Type="Int32" />
+          <Property Name="eC_IsSSLEnabled" Type="Boolean" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="LocationId" Type="Int32" />
+          <Property Name="eC_status" Type="Boolean" />
+          <Property Name="eC_IsDefault" Type="Boolean" />
+          <Property Name="eC_IsActive" Type="Boolean" />
+          <Property Name="eC_signature" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="eC_Pop3Server" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ec_Pop3Portno" Type="Int32" />
+          <Property Name="DisplayName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="AddedBy" Type="Int64" />
+          <Property Name="AddedOn" Type="DateTime" />
+          <Property Name="LastModifiedBy" Type="Int64" />
+          <Property Name="LastModifiedOn" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventsID" />
+          </Key>
+          <Property Name="EventsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventsName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FormID" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Form">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Name="FormID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FormName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ModuleID" Type="Int32" />
+          <Property Name="MessageBox1" Type="Boolean" />
+          <Property Name="MessageBox2" Type="Boolean" />
+          <Property Name="MessageBox3" Type="Boolean" />
+          <Property Name="MessageBox1_Contacts" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MessageBox2_Contacts" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MessageBox3_Contacts" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TableStructure">
+          <Key>
+            <PropertyRef Name="tS_Id" />
+          </Key>
+          <Property Name="tS_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tS_Query" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="tS_FormName" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="tS_ControlName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DataBaseName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Select_Clause" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="AddedBy" Type="Int64" />
+          <Property Name="AddedOn" Type="DateTime" />
+          <Property Name="LastModifiedBy" Type="Int64" />
+          <Property Name="LastModifiedOn" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="EventManager">
+          <Key>
+            <PropertyRef Name="eM_Id" />
+          </Key>
+          <Property Type="Int32" Name="eM_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="eM_ModuleId" />
+          <Property Type="Int32" Name="eM_FormId" />
+          <Property Type="Int32" Name="eM_Events_Id" />
+          <Property Type="Int32" Name="eM_CompanyId" />
+          <Property Type="Int32" Name="eM_LocationId" />
+          <Property Type="Int32" Name="eM_ConfigId" />
+          <Property Type="String" Name="eM_RuleName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="eM_Subject" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="eM_CommonEmailBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="eM_HostEmailBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="eM_VisitorEmailBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="eM_Priority" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="eM_Reciepients" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedOn" />
+          <Property Type="Int32" Name="LastModifiedBy" />
+          <Property Type="DateTime" Name="LastModifiedOn" />
+          <Property Type="Int32" Name="eM_Department" />
+          <Property Type="Int32" Name="eM_TemplateId" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EINS_RBMS_EMAILModelStoreContainer" CdmEntityContainer="EINS_RBMS_EMAILEntities">
+          <EntitySetMapping Name="Columns"><EntityTypeMapping TypeName="EINS_RBMS_EMAILModel.Column"><MappingFragment StoreEntitySet="Columns">
+            <ScalarProperty Name="ColumnID" ColumnName="ColumnID" />
+            <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+            <ScalarProperty Name="DbColumnName" ColumnName="DbColumnName" />
+            <ScalarProperty Name="DbtableName" ColumnName="DbtableName" />
+            <ScalarProperty Name="FormID" ColumnName="FormID" />
+            <ScalarProperty Name="Priority" ColumnName="Priority" />
+            <ScalarProperty Name="status" ColumnName="status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EmailConfigurations"><EntityTypeMapping TypeName="EINS_RBMS_EMAILModel.EmailConfiguration"><MappingFragment StoreEntitySet="EmailConfiguration">
+            <ScalarProperty Name="eC_Id" ColumnName="eC_Id" />
+            <ScalarProperty Name="eC_SMTPServerName" ColumnName="eC_SMTPServerName" />
+            <ScalarProperty Name="eC_UserName" ColumnName="eC_UserName" />
+            <ScalarProperty Name="eC_Password" ColumnName="eC_Password" />
+            <ScalarProperty Name="eC_SMTPPort" ColumnName="eC_SMTPPort" />
+            <ScalarProperty Name="eC_IsSSLEnabled" ColumnName="eC_IsSSLEnabled" />
+            <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+            <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+            <ScalarProperty Name="eC_status" ColumnName="eC_status" />
+            <ScalarProperty Name="eC_IsDefault" ColumnName="eC_IsDefault" />
+            <ScalarProperty Name="eC_IsActive" ColumnName="eC_IsActive" />
+            <ScalarProperty Name="eC_signature" ColumnName="eC_signature" />
+            <ScalarProperty Name="eC_Pop3Server" ColumnName="eC_Pop3Server" />
+            <ScalarProperty Name="ec_Pop3Portno" ColumnName="ec_Pop3Portno" />
+            <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+            <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+            <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+            <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+            <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="EINS_RBMS_EMAILModel.Event"><MappingFragment StoreEntitySet="Events">
+            <ScalarProperty Name="EventsID" ColumnName="EventsID" />
+            <ScalarProperty Name="EventsName" ColumnName="EventsName" />
+            <ScalarProperty Name="FormID" ColumnName="FormID" />
+            <ScalarProperty Name="status" ColumnName="status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Forms"><EntityTypeMapping TypeName="EINS_RBMS_EMAILModel.Form"><MappingFragment StoreEntitySet="Forms">
+            <ScalarProperty Name="FormID" ColumnName="FormID" />
+            <ScalarProperty Name="FormName" ColumnName="FormName" />
+            <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+            <ScalarProperty Name="MessageBox1" ColumnName="MessageBox1" />
+            <ScalarProperty Name="MessageBox2" ColumnName="MessageBox2" />
+            <ScalarProperty Name="MessageBox3" ColumnName="MessageBox3" />
+            <ScalarProperty Name="MessageBox1_Contacts" ColumnName="MessageBox1_Contacts" />
+            <ScalarProperty Name="MessageBox2_Contacts" ColumnName="MessageBox2_Contacts" />
+            <ScalarProperty Name="MessageBox3_Contacts" ColumnName="MessageBox3_Contacts" />
+            <ScalarProperty Name="status" ColumnName="status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Modules"><EntityTypeMapping TypeName="EINS_RBMS_EMAILModel.Module"><MappingFragment StoreEntitySet="Modules">
+            <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+            <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+            <ScalarProperty Name="status" ColumnName="status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TableStructures"><EntityTypeMapping TypeName="EINS_RBMS_EMAILModel.TableStructure"><MappingFragment StoreEntitySet="TableStructure">
+            <ScalarProperty Name="tS_Id" ColumnName="tS_Id" />
+            <ScalarProperty Name="tS_Query" ColumnName="tS_Query" />
+            <ScalarProperty Name="tS_FormName" ColumnName="tS_FormName" />
+            <ScalarProperty Name="tS_ControlName" ColumnName="tS_ControlName" />
+            <ScalarProperty Name="DataBaseName" ColumnName="DataBaseName" />
+            <ScalarProperty Name="Select_Clause" ColumnName="Select_Clause" />
+            <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+            <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+            <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+            <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EventManagers">
+            <EntityTypeMapping TypeName="EINS_RBMS_EMAILModel.EventManager">
+              <MappingFragment StoreEntitySet="EventManager">
+                <ScalarProperty Name="eM_TemplateId" ColumnName="eM_TemplateId" />
+                <ScalarProperty Name="eM_Department" ColumnName="eM_Department" />
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="eM_Reciepients" ColumnName="eM_Reciepients" />
+                <ScalarProperty Name="eM_Priority" ColumnName="eM_Priority" />
+                <ScalarProperty Name="eM_VisitorEmailBody" ColumnName="eM_VisitorEmailBody" />
+                <ScalarProperty Name="eM_HostEmailBody" ColumnName="eM_HostEmailBody" />
+                <ScalarProperty Name="eM_CommonEmailBody" ColumnName="eM_CommonEmailBody" />
+                <ScalarProperty Name="eM_Subject" ColumnName="eM_Subject" />
+                <ScalarProperty Name="eM_RuleName" ColumnName="eM_RuleName" />
+                <ScalarProperty Name="eM_ConfigId" ColumnName="eM_ConfigId" />
+                <ScalarProperty Name="eM_LocationId" ColumnName="eM_LocationId" />
+                <ScalarProperty Name="eM_CompanyId" ColumnName="eM_CompanyId" />
+                <ScalarProperty Name="eM_Events_Id" ColumnName="eM_Events_Id" />
+                <ScalarProperty Name="eM_FormId" ColumnName="eM_FormId" />
+                <ScalarProperty Name="eM_ModuleId" ColumnName="eM_ModuleId" />
+                <ScalarProperty Name="eM_Id" ColumnName="eM_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RDMBS_Email">
+        <EntityTypeShape EntityType="EINS_RBMS_EMAILModel.Column" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="EINS_RBMS_EMAILModel.EmailConfiguration" Width="1.5" PointX="2.75" PointY="0.75" Height="4.6725065104166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="EINS_RBMS_EMAILModel.Event" Width="1.5" PointX="4.75" PointY="0.75" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="EINS_RBMS_EMAILModel.Form" Width="1.5" PointX="4.75" PointY="3.75" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="EINS_RBMS_EMAILModel.Module" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EINS_RBMS_EMAILModel.TableStructure" Width="1.5" PointX="0.75" PointY="6.75" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="EINS_RBMS_EMAILModel.EventManager" Width="1.5" PointX="7.375" PointY="3.75" Height="4.8648079427083317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

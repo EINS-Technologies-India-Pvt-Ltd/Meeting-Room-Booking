@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EINS_RBMS_EMAILModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EINS_RBMS_EMAILModelStoreContainer">
+    <EntitySet Name="Columns" EntityType="EINS_RBMS_EMAILModel.Store.Columns" store:Type="Tables" store:Schema="dbo" store:Name="Columns">
+      <DefiningQuery>SELECT 
+      [Columns].[ColumnID] AS [ColumnID], 
+      [Columns].[ColumnName] AS [ColumnName], 
+      [Columns].[DbColumnName] AS [DbColumnName], 
+      [Columns].[DbtableName] AS [DbtableName], 
+      [Columns].[FormID] AS [FormID], 
+      [Columns].[Priority] AS [Priority], 
+      [Columns].[status] AS [status]
+      FROM [dbo].[Columns] AS [Columns]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EmailConfiguration" EntityType="EINS_RBMS_EMAILModel.Store.EmailConfiguration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventManager" EntityType="EINS_RBMS_EMAILModel.Store.EventManager" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="EINS_RBMS_EMAILModel.Store.Events" store:Type="Tables" store:Schema="dbo" store:Name="Events">
+      <DefiningQuery>SELECT 
+      [Events].[EventsID] AS [EventsID], 
+      [Events].[EventsName] AS [EventsName], 
+      [Events].[FormID] AS [FormID], 
+      [Events].[status] AS [status]
+      FROM [dbo].[Events] AS [Events]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Forms" EntityType="EINS_RBMS_EMAILModel.Store.Forms" store:Type="Tables" store:Schema="dbo" store:Name="Forms">
+      <DefiningQuery>SELECT 
+      [Forms].[FormID] AS [FormID], 
+      [Forms].[FormName] AS [FormName], 
+      [Forms].[ModuleID] AS [ModuleID], 
+      [Forms].[MessageBox1] AS [MessageBox1], 
+      [Forms].[MessageBox2] AS [MessageBox2], 
+      [Forms].[MessageBox3] AS [MessageBox3], 
+      [Forms].[MessageBox1_Contacts] AS [MessageBox1_Contacts], 
+      [Forms].[MessageBox2_Contacts] AS [MessageBox2_Contacts], 
+      [Forms].[MessageBox3_Contacts] AS [MessageBox3_Contacts], 
+      [Forms].[status] AS [status]
+      FROM [dbo].[Forms] AS [Forms]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Modules" EntityType="EINS_RBMS_EMAILModel.Store.Modules" store:Type="Tables" store:Schema="dbo" store:Name="Modules">
+      <DefiningQuery>SELECT 
+      [Modules].[ModuleID] AS [ModuleID], 
+      [Modules].[ModuleName] AS [ModuleName], 
+      [Modules].[status] AS [status]
+      FROM [dbo].[Modules] AS [Modules]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TableStructure" EntityType="EINS_RBMS_EMAILModel.Store.TableStructure" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Columns' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Columns">
+    <Key>
+      <PropertyRef Name="ColumnID" />
+    </Key>
+    <Property Name="ColumnID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ColumnName" Type="varchar" MaxLength="100" />
+    <Property Name="DbColumnName" Type="varchar" MaxLength="100" />
+    <Property Name="DbtableName" Type="varchar" MaxLength="100" />
+    <Property Name="FormID" Type="int" />
+    <Property Name="Priority" Type="bit" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="EmailConfiguration">
+    <Key>
+      <PropertyRef Name="eC_Id" />
+    </Key>
+    <Property Name="eC_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="eC_SMTPServerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="eC_UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="eC_Password" Type="nvarchar" MaxLength="500" />
+    <Property Name="eC_SMTPPort" Type="int" />
+    <Property Name="eC_IsSSLEnabled" Type="bit" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="eC_status" Type="bit" />
+    <Property Name="eC_IsDefault" Type="bit" />
+    <Property Name="eC_IsActive" Type="bit" />
+    <Property Name="eC_signature" Type="nvarchar(max)" />
+    <Property Name="eC_Pop3Server" Type="nvarchar" MaxLength="100" />
+    <Property Name="ec_Pop3Portno" Type="int" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EventManager">
+    <Key>
+      <PropertyRef Name="eM_Id" />
+    </Key>
+    <Property Name="eM_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="eM_ModuleId" Type="int" />
+    <Property Name="eM_FormId" Type="int" />
+    <Property Name="eM_Events_Id" Type="int" />
+    <Property Name="eM_CompanyId" Type="int" />
+    <Property Name="eM_LocationId" Type="int" />
+    <Property Name="eM_ConfigId" Type="int" />
+    <Property Name="eM_RuleName" Type="nvarchar" MaxLength="100" />
+    <Property Name="eM_Subject" Type="nvarchar" MaxLength="250" />
+    <Property Name="eM_CommonEmailBody" Type="nvarchar(max)" />
+    <Property Name="eM_HostEmailBody" Type="nvarchar(max)" />
+    <Property Name="eM_VisitorEmailBody" Type="nvarchar(max)" />
+    <Property Name="eM_Priority" Type="nvarchar" MaxLength="50" />
+    <Property Name="eM_Reciepients" Type="nvarchar" MaxLength="200" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="int" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+    <Property Name="eM_Department" Type="int" />
+    <Property Name="eM_TemplateId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Events' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventsID" />
+    </Key>
+    <Property Name="EventsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventsName" Type="varchar" MaxLength="100" />
+    <Property Name="FormID" Type="varchar" MaxLength="100" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Forms' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Forms">
+    <Key>
+      <PropertyRef Name="FormID" />
+    </Key>
+    <Property Name="FormID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FormName" Type="varchar" MaxLength="100" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="MessageBox1" Type="bit" />
+    <Property Name="MessageBox2" Type="bit" />
+    <Property Name="MessageBox3" Type="bit" />
+    <Property Name="MessageBox1_Contacts" Type="nvarchar(max)" />
+    <Property Name="MessageBox2_Contacts" Type="nvarchar(max)" />
+    <Property Name="MessageBox3_Contacts" Type="nvarchar(max)" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'EINS_RBMS_EMAIL.dbo.Modules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleName" Type="varchar" MaxLength="100" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="TableStructure">
+    <Key>
+      <PropertyRef Name="tS_Id" />
+    </Key>
+    <Property Name="tS_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tS_Query" Type="nvarchar(max)" />
+    <Property Name="tS_FormName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="tS_ControlName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DataBaseName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Select_Clause" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddedBy" Type="bigint" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+  </EntityType>
+</Schema>
